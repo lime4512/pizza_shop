@@ -1,4 +1,29 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 body {
-	font-family: 'Roboto', sans-serif;
-  background-color: rgb(53, 53, 53);
+	font: 400 20px 'Roboto', sans-serif;
+	color: #fff;
+	background-color: rgb(53, 53, 53);
+}
+
+h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+}
+
+button {
+	display: block;
+	font-weight: 400;
+	border: none;
+	color: inherit;
+	font: inherit;
+	background-color: transparent;
+	transition: 0.4s;
+	cursor: pointer;
 }
