@@ -1,0 +1,28 @@
+.content-container {
+	display: flex;
+	margin: 0 120px;
+}
+
+.content-left {
+	width: 50%;
+	display: flex;
+	justify-content: center;
+}
+
+.slick-slider {
+	.slick-arrow {
+		position: relative;
+		margin: auto;
+		transform: rotate(90deg);
+	}
+	.slick-prev {
+		left: 0;
+	}
+	.slick-next {
+		right: 0;
+	}
+}
+
+.content-slider {
+	width: 600px;
+}
