@@ -1,0 +1,18 @@
+.slick-slider {
+	border: none !important;
+	.slick-arrow {
+		position: relative;
+		margin: auto;
+		transform: rotate(90deg);
+	}
+	.slick-prev {
+		left: 0;
+	}
+	.slick-next {
+		right: 0;
+	}
+}
+
+.slick-slide {
+	border: none !important;
+}

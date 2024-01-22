@@ -1,8 +1,6 @@
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
+import { Carousel } from '../carousel'
 import './style.scss'
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useState } from 'react'
 
 interface dataItem {
 	title: string
@@ -18,44 +16,32 @@ interface Props {
 
 export const Content: FunctionComponent<Props> = ({ data }) => {
 	const img = data.map(item => item.photo)
-	console.log(img)
-	const settings = {
-		dots: false,
-		infinite: true,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		vertical: true,
-		verticalSwiping: true,
-		swipeToSlide: true,
-	}
+	const [numL, setNumL] = useState(0)
+	const [numR, setNumR] = useState(0)
+
 	return (
 		<section className='content-container'>
 			<div className='content-left'>
-				<h2 className='content-title'></h2>
-				<p className='content-text'></p>
+				<h2 className='content-title'>{data[numL].title}</h2>
+				<p className='content-text'>{data[numL].desc}</p>
 				<div className='content-slider'>
-					<Slider {...settings}>
-						{img.map(item => (
-							<div className='img-pizza'>
-								<img src={item} alt='' />
-							</div>
-						))}
-					</Slider>
+					<Carousel img={img} setNum={setNumL} />
 				</div>
+
+				<p className='prise'>{data[numL].price}</p>
 			</div>
 
 			<div className='content-left'>
-				<h2 className='content-title'></h2>
-				<p className='content-text'></p>
+				<h2 className='content-title'>{data[numR].title}</h2>
+				<p className='content-text'>{data[numR].desc}</p>
 				<div className='content-slider'>
-					<Slider {...settings}>
-						{img.map(item => (
-							<div className='img-pizza'>
-								<img src={item} alt='' />
-							</div>
-						))}
-					</Slider>
+					<Carousel img={img} setNum={setNumR} />
 				</div>
+				<p className='prise'>{data[numR].price}</p>
+			</div>
+
+			<div className='total-prise'>
+				<h3>Price: {Number(data[numR].price) + Number(data[numL].price)}$</h3>
 			</div>
 		</section>
 	)
