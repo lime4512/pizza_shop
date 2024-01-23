@@ -7,12 +7,24 @@
 	}
 	.slick-prev {
 		left: 0;
+		bottom: 25px;
+		&::before {
+			font-size: 40px;
+		}
 	}
 	.slick-next {
 		right: 0;
+
+		&::before {
+			font-size: 40px;
+		}
 	}
 }
 
 .slick-slide {
 	border: none !important;
+}
+
+.R {
+	transform: rotate(180deg) !important;
 }

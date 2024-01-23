@@ -2,7 +2,7 @@ import './style.scss'
 export const Header = () => {
 	return (
 		<header>
-			<h1 className='header-logo'>PIZZA-CUSTOM</h1>
+			<h1 className='header-logo'>PIZZA-DOUBLE</h1>
 			<div className='cart'>
 				<button className='cart-btn'>
 					<svg

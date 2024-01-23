@@ -6,9 +6,10 @@ import './style.scss'
 interface Props {
 	img: string[]
 	setNum: React.Dispatch<React.SetStateAction<number>>
+	rot: string
 }
 
-export const Carousel: FunctionComponent<Props> = ({ img, setNum }) => {
+export const Carousel: FunctionComponent<Props> = ({ img, setNum, rot }) => {
 	const settings = {
 		dots: false,
 		infinite: true,
@@ -25,7 +26,7 @@ export const Carousel: FunctionComponent<Props> = ({ img, setNum }) => {
 		<>
 			<Slider {...settings}>
 				{img.map(item => (
-					<div className='img-pizza' key={Math.random()}>
+					<div className={'img-pizza ' + rot} key={Math.random()}>
 						<img src={item} alt='' />
 					</div>
 				))}
