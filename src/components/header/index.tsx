@@ -1,10 +1,13 @@
+import { useState } from 'react'
+import { Modal } from '../modal'
 import './style.scss'
 export const Header = () => {
+	const [modalOpen, setModalOpen] = useState(false)
 	return (
 		<header>
 			<h1 className='header-logo'>PIZZA-DOUBLE</h1>
 			<div className='cart'>
-				<button className='cart-btn'>
+				<button className='cart-btn' onClick={() => setModalOpen(true)}>
 					<svg
 						xmlns='http://www.w3.org/2000/svg'
 						height='24'
@@ -15,6 +18,8 @@ export const Header = () => {
 					</svg>
 				</button>
 			</div>
+
+			<Modal open={modalOpen} setOpen={setModalOpen} />
 		</header>
 	)
 }
