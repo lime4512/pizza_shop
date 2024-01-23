@@ -1,6 +1,8 @@
+import { observer } from 'mobx-react-lite'
 import { Carousel } from '../carousel'
 import './style.scss'
 import { FunctionComponent, useState } from 'react'
+import StoreCart from '../store/storeCart'
 
 interface dataItem {
 	title: string
@@ -14,11 +16,14 @@ interface Props {
 	data: dataItem[]
 }
 
-export const Content: FunctionComponent<Props> = ({ data }) => {
+export const Content: FunctionComponent<Props> = observer(({ data }) => {
 	const img = data.map(item => item.photo)
 	const [numL, setNumL] = useState(0)
 	const [numR, setNumR] = useState(0)
 
+	const handelData = () => {
+		StoreCart.addCart({ title: data[numL].title, price: Number(data[numL].price) })
+	}
 	return (
 		<section className='content-container'>
 			<div className='content-pizza'>
@@ -50,8 +55,10 @@ export const Content: FunctionComponent<Props> = ({ data }) => {
 				<h3>
 					Total Price: {Number(data[numR].price) + Number(data[numL].price)}$
 				</h3>
-				<button className='add-cart'>Add cart</button>
+				<button className='add-cart' onClick={handelData}>
+					Add cart
+				</button>
 			</div>
 		</section>
 	)
-}
+})
