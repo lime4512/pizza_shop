@@ -22,7 +22,13 @@ export const Content: FunctionComponent<Props> = observer(({ data }) => {
 	const [numR, setNumR] = useState(0)
 
 	const handelData = () => {
-		StoreCart.addCart({ title: data[numL].title, price: Number(data[numL].price) })
+		StoreCart.addCart({
+			title1: data[numL].title,
+			title2: data[numR].title,
+			img1: data[numL].photo,
+			img2: data[numR].photo,
+			price: Number(data[numR].price) + Number(data[numL].price),
+		})
 	}
 	return (
 		<section className='content-container'>
